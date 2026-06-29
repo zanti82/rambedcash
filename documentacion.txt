@@ -1,0 +1,10 @@
+
+
+correr spring desde terminal:
+mvn spring-boot:run
+
+actualizar  el pomxl
+
+mvn dependency:resolve
+
+Para usar un .env, hayq ue usar application_local.properties y subirlo al git.ignore
