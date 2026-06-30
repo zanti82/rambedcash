@@ -4,7 +4,35 @@ correr spring desde terminal:
 mvn spring-boot:run
 
 actualizar  el pomxl
-
 mvn dependency:resolve
 
-Para usar un .env, hayq ue usar application_local.properties y subirlo al git.ignore
+Para usar un .env, hayq ue usar application-local.properties y subirlo al git.ignore
+
+BASE DE DATOS
+
+CONSTRAINT: es una regla que la base de datos cumple siempre. Por ejemplo CHECK (tipo IN ('INGRESO', 'EGRESO')) significa que si alguien intenta guardar tipo = 'OTRO', la base de datos lo rechaza automáticamente. Es una capa de seguridad que no depende del código.
+
+ddl-auto: controla qué hace Hibernate con las tablas al arrancar.
+
+validate = solo verifica, no toca nada.
+
+create = borra todo y crea desde cero (peligroso en producción).
+
+update = intenta actualizar las tablas (impredecible).
+
+Para proyectos reales siempre se usa validate o none.
+
+
+FOREIGN KEY: es un enlace entre tablas. categoria_id en movimientos apunta a categorias(id). Si intentas guardar un movimiento con una categoría que no existe, la base de datos lo rechaza.
+
+SPRINGBOOT
+
+Lombok: elimina código repetitivo en Java (getters, setters, constructores). Se hace con anotaciones como @Data. El código compila igual, solo lo escribes menos.
+Validation: pone las reglas de validación directo en la clase con anotaciones como @NotBlank o @Positive. Spring las ejecuta automáticamente cuando llegan datos del frontend.
+
+CAPAS VS MODULOS
+Por capa vs por módulo: organizar por capa agrupa archivos del mismo tipo técnico. 
+Organizar por módulo agrupa archivos del mismo tema de negocio. En proyectos grandes por módulo es más fácil de mantener porque todo lo relacionado está junto. A esto se le llama arquitectura por features.
+
+DTO (Data Transfer Object): es una clase que define qué datos viajan entre el frontend y el backend. La entidad Movimiento tiene todos los campos de la BD. El DTO MovimientoDTO solo tiene los que el frontend necesita ver o enviar. Separan la BD de la API.
+
