@@ -1,3 +1,4 @@
+
 -- ============================================================
 -- RambedCash - Script inicial de base de datos
 -- V1__crear_tablas.sql
