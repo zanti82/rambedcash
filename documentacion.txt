@@ -36,3 +36,8 @@ Organizar por módulo agrupa archivos del mismo tema de negocio. En proyectos gr
 
 DTO (Data Transfer Object): es una clase que define qué datos viajan entre el frontend y el backend. La entidad Movimiento tiene todos los campos de la BD. El DTO MovimientoDTO solo tiene los que el frontend necesita ver o enviar. Separan la BD de la API.
 
+AUTH al inicio sin contaseñas
+.authorizeHttpRequests(auth -> auth
+    .anyRequest().permitAll()
+)
+

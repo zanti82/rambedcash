@@ -11,6 +11,8 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Data
 @Entity
 @Table(name = "usuarios")
@@ -26,6 +28,8 @@ public class Usuario {
     @Column(nullable = false, unique = true, length = 150)
     private String email;
 
+    
+    @JsonIgnore
     @Column(nullable = false, length = 255)
     private String password;
 
