@@ -1,0 +1,49 @@
+
+services:
+
+  db:
+    image: postgres:15
+    container_name: rambedcash-db
+    environment:
+      POSTGRES_DB: rambedCash
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: zantilenovo
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/src/main/resources/db:/docker-entrypoint-initdb.d
+    networks:
+      - rambedcash-network
+
+  backend:
+    build: ./backend
+    container_name: rambedcash-backend
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/rambedCash
+      DB_USERNAME: postgres
+      DB_PASSWORD: zantilenovo
+      JWT_SECRET: rambedcash_jwt_secret_key_2024_muy_larga_y_segura
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - rambedcash-network
+
+  frontend:
+    build: ./frontend
+    container_name: rambedcash-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - rambedcash-network
+
+volumes:
+  postgres_data:
+
+networks:
+  rambedcash-network:
+    driver: bridge
