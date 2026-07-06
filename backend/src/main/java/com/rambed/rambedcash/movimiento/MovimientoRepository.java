@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.rambed.rambedcash.categoria.Categoria;
+
 public interface MovimientoRepository extends JpaRepository<Movimiento, Integer> {
 
     List<Movimiento> findByFechaBetweenOrderByFechaDesc(
@@ -34,4 +36,12 @@ public interface MovimientoRepository extends JpaRepository<Movimiento, Integer>
             @Param("tipo") Movimiento.Tipo tipo,
             @Param("fechaInicio") LocalDate fechaInicio,
             @Param("fechaFin") LocalDate fechaFin);
+
+        @Query("SELECT SUM(m.valor) FROM Movimiento m " +
+        "WHERE m.categoria.clasificacion = :clasificacion " +
+        "AND m.fecha BETWEEN :fechaInicio AND :fechaFin")
+        BigDecimal sumarPorClasificacion(
+                @Param("clasificacion") Categoria.Clasificacion clasificacion,
+                @Param("fechaInicio") LocalDate fechaInicio,
+                @Param("fechaFin") LocalDate fechaFin);
 }
