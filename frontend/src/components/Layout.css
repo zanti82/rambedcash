@@ -1,0 +1,104 @@
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 240px;
+    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 100;
+}
+
+.sidebar-header {
+    padding: 24px 20px;
+    border-bottom: 1px solid #333;
+}
+
+.sidebar-logo {
+    color: #c0392b;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.sidebar-empresa {
+    color: #888;
+    font-size: 12px;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item {
+    padding: 12px 20px;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+}
+
+.nav-item:hover {
+    color: white;
+    background-color: #333;
+}
+
+.nav-item.activo {
+    color: white;
+    background-color: #2a2a2a;
+    border-left: 3px solid #c0392b;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid #333;
+}
+
+.sidebar-usuario {
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.contenido {
+    margin-left: 240px;
+    padding: 32px;
+    flex: 1;
+    min-height: 100vh;
+}
+
+.menu-toggle {
+    display: none;
+    background: #1a1a1a;
+    color: white;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        left: -240px;
+        transition: left 0.3s;
+    }
+
+    .sidebar.abierto {
+        left: 0;
+    }
+
+    .contenido {
+        margin-left: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}

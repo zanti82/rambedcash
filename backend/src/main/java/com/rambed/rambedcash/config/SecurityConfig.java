@@ -29,6 +29,10 @@ public class SecurityConfig {
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/api/usuarios/**").permitAll() //permitodos auque ya funciona jwtfilter
                 .requestMatchers("/api/categorias/**").permitAll() //permitodos auque ya funciona jwtfilter
+                .requestMatchers("/api/dashboard/**").permitAll() //permitodos auque ya funciona jwtfilter
+                .requestMatchers("/api/prestamos/**").permitAll() //permitodos auque ya funciona jwtfilter
+                .requestMatchers("/api/reportes/**").permitAll() //permitodos auque ya funciona jwtfilter
+                .requestMatchers("/api/movimientos/**").permitAll() //permitodos auque ya funciona jwtfilter
                 .anyRequest().authenticated()
             )
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);

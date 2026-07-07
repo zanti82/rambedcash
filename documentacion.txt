@@ -41,3 +41,13 @@ AUTH al inicio sin contaseñas
     .anyRequest().permitAll()
 )
 
+FRONT
+
+npm install, para instalar modules
+npm install axios react-router-dom recharts, 
+axios          → para llamar al backend
+react-router-dom → para navegar entre páginas
+recharts       → para las gráficas del dashboard
+
+
+

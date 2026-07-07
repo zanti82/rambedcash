@@ -1,0 +1,107 @@
+.reportes h1 {
+    margin-bottom: 24px;
+}
+
+.reportes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.reportes-grid .card h3 {
+    margin-bottom: 16px;
+}
+
+.filtro-fila {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.filtro-fila .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 140px;
+}
+
+.filtro-fila .btn-primary {
+    height: 40px;
+}
+
+.reporte-resultado {
+    margin-top: 8px;
+}
+
+.reporte-fila {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+
+.reporte-total {
+    font-weight: 600;
+    border-bottom: none;
+    padding-top: 12px;
+}
+
+.estado-resultados {
+    margin-top: 0;
+}
+
+.estado-resultados h3 {
+    margin-bottom: 16px;
+}
+
+.estado-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.estado-seccion h4 {
+    font-size: 13px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.estado-final {
+    border-left: 2px solid #f0f0f0;
+    padding-left: 24px;
+}
+
+.utilidad-neta {
+    font-size: 16px;
+    color: #1a1a1a;
+    margin-top: 8px;
+}
+
+.valor-ingreso {
+    color: #155724;
+    font-weight: 500;
+}
+
+.valor-egreso {
+    color: #721c24;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .reportes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .estado-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filtro-fila {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
